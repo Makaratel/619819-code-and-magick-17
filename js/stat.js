@@ -11,7 +11,7 @@ var OFFSET_BAR = 50;
 var BAR_WIDTH = 40;
 var barHeight = CLOUD_HEIGHT - (CLOUD_Y + OFFSET + OFFSET_FONT * 2) - OFFSET - OFFSET_FONT - OFFSET_FONT - OFFSET_FONT / 2;
 
-var renderCloud = function (ctx, x, y ,color) {
+var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
