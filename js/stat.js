@@ -11,12 +11,12 @@ var OFFSET_BAR = 50;
 var BAR_WIDTH = 40;
 var barHeight = CLOUD_HEIGHT - (CLOUD_Y + OFFSET + OFFSET_FONT * 2) - OFFSET - OFFSET_FONT - OFFSET_FONT - OFFSET_FONT / 2;
 
-var renderCloud = function(ctx, x, y ,color) {
+var renderCloud = function (ctx, x, y ,color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
-}
+};
 
-var getMaxElement = function(array) {
+var getMaxElement = function (array) {
   var maxElement = array[0];
 
   for (var i = 0; i < array.length; i++) {
@@ -25,16 +25,16 @@ var getMaxElement = function(array) {
     }
   }
 
-  return maxElement
-}
+  return maxElement;
+};
 
-var getRandomBarColor = function() {
+var getRandomBarColor = function () {
   var randomProcent = Math.random().toFixed(2) * 100;
   var randomColor = 'hsl(240, ' + randomProcent + '%, 25%)';
-  return randomColor
-}
+  return randomColor;
+};
 
-window.renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, CLOUD_X + OFFSET, CLOUD_Y + OFFSET, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, 'rgba(255, 255, 255, 1)');
 
@@ -57,4 +57,4 @@ window.renderStatistics = function(ctx, names, times) {
 
     ctx.fillRect(CLOUD_X + OFFSET_BAR + (BAR_WIDTH + OFFSET_BAR) * i, (CLOUD_HEIGHT - OFFSET_FONT / 2 - OFFSET_FONT) + (1 - barHeight * times[i] / maxTime), BAR_WIDTH, barHeight * times[i] / maxTime);
   }
-}
+};
