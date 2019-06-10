@@ -14,7 +14,7 @@ var wizards = [];
 
 var getRandomNumber = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
-}
+};
 
 var getRandomWizard = function () {
   for (var i = 0; i < 4; i++) {
@@ -26,11 +26,11 @@ var getRandomWizard = function () {
       name: wizardName,
       coatColor: wizardCoatColor,
       eyesColor: wizardEyesColor
-    }
+    };
     wizards.push(wizard);
   }
   return wizards;
-}
+};
 
 
 var renderWizard = function (wizard) {
@@ -39,7 +39,7 @@ var renderWizard = function (wizard) {
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
   return wizardElement;
-}
+};
 
 getRandomWizard();
 var fragment = document.createDocumentFragment();
