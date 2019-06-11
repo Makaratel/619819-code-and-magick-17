@@ -32,7 +32,6 @@ var getRandomWizard = function () {
   return wizards;
 };
 
-
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
@@ -50,4 +49,3 @@ for (var i = 0; i < wizards.length; i++) {
 
 similarListElement.appendChild(fragment);
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
-
