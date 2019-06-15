@@ -81,16 +81,19 @@ setupClose.addEventListener('keydown', function (evt) {
   }
 });
 
-userNameInput.addEventListener('invalid', function (evt) {
+userNameInput.addEventListener('invalid', function () {
   if (userNameInput.validity.tooShort) {
     userNameInput.setCustomValidity('Имя персонажа не должно быть короче 2 символов');
   }
+
   else if (userNameInput.validity.tooLong) {
     userNameInput.setCustomValidity('Имя персонажа не должно превышать 25 символов');
   }
+
   else if (userNameInput.validity.valueMissing) {
     userNameInput.setCustomValidity('Обязательное поле');
   }
+
   else {
     userNameInput.setCustomValidity('');
   }
@@ -109,18 +112,18 @@ userNameInput.addEventListener('input', function (evt) {
 setupWizardCoat.addEventListener('click', function () {
   var setupCoatColor = COAT_COLORS[getRandomNumber(0, COAT_COLORS.length)];
   setupWizardCoat.style.fill = setupCoatColor;
-})
+});
 
 setupWizardEyes.addEventListener('click', function () {
   var setupEyesColor = EYES_COLORS[getRandomNumber(0, EYES_COLORS.length)];
   setupWizardEyes.style.fill = setupEyesColor;
-})
+});
 
 setupFireball.addEventListener('click', function () {
   var setupFireballColor = FIREBALL_COLORS[getRandomNumber(0, FIREBALL_COLORS.length)];
   setupFireball.style.backgroundColor = setupFireballColor;
   setupFireballInput.value = setupFireballColor;
-})
+});
 
 getRandomWizard();
 var fragment = document.createDocumentFragment();
