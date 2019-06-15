@@ -84,17 +84,11 @@ setupClose.addEventListener('keydown', function (evt) {
 userNameInput.addEventListener('invalid', function () {
   if (userNameInput.validity.tooShort) {
     userNameInput.setCustomValidity('Имя персонажа не должно быть короче 2 символов');
-  }
-
-  else if (userNameInput.validity.tooLong) {
+  } else if (userNameInput.validity.tooLong) {
     userNameInput.setCustomValidity('Имя персонажа не должно превышать 25 символов');
-  }
-
-  else if (userNameInput.validity.valueMissing) {
+  } else if (userNameInput.validity.valueMissing) {
     userNameInput.setCustomValidity('Обязательное поле');
-  }
-
-  else {
+  } else {
     userNameInput.setCustomValidity('');
   }
 });
@@ -103,8 +97,7 @@ userNameInput.addEventListener('input', function (evt) {
   var target = evt.target;
   if (target.value.length < 2) {
     userNameInput.setCustomValidity('Имя персонажа не должно быть короче 2 символов');
-  }
-  else {
+  } else {
     userNameInput.setCustomValidity('');
   }
 });
