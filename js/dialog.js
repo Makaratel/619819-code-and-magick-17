@@ -43,9 +43,9 @@
         document.removeEventListener('mouseup', onMouseUp);
 
         if (dragged) {
-          var onClickPreventDefault = function (evt) {
+          var onClickPreventDefault = function () {
             evt.preventDefault();
-            initialElemnt.removeEventListener('click', onClickPreventDefault)
+            initialElemnt.removeEventListener('click', onClickPreventDefault);
           };
 
           initialElemnt.addEventListener('click', onClickPreventDefault);
@@ -55,8 +55,8 @@
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
     });
-  }
+  };
 
   getDraggableElement(setupDialogElement, dialogHandler);
   getDraggableElement(star, star);
-}) ();
+})();
