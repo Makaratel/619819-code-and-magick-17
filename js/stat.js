@@ -16,18 +16,6 @@ var renderCloud = function (ctx, x, y, color) {
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-var getMaxElement = function (array) {
-  var maxElement = array[0];
-
-  for (var i = 0; i < array.length; i++) {
-    if (array[i] > maxElement) {
-      maxElement = array[i];
-    }
-  }
-
-  return maxElement;
-};
-
 var getRandomBarColor = function () {
   var randomProcent = Math.random().toFixed(2) * 100;
   var randomColor = 'hsl(240, ' + randomProcent + '%, 25%)';
@@ -38,7 +26,7 @@ window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, CLOUD_X + OFFSET, CLOUD_Y + OFFSET, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, 'rgba(255, 255, 255, 1)');
 
-  var maxTime = getMaxElement(times);
+  var maxTime = window.util.getMaxElement(times);
 
   ctx.Font = '16px PT Mono';
   ctx.fillStyle = COLOR_TEXT;
