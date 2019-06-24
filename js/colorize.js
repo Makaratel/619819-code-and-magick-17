@@ -8,8 +8,7 @@
         formElement.value = window.util.getRandomArrayElement(colorsArray);
       } else {
         element.style.fill = window.util.getRandomArrayElement(colorsArray);
-        console.log(element.style.fill);
       }
-    })
-  }
+    });
+  };
 })();

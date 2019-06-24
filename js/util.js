@@ -8,13 +8,13 @@
     if (evt.keyCode === ESC_KEYCODE) {
       action();
     }
-  }
+  };
 
   var isEnterEvent = function (evt, action) {
     if (evt.keyCode === ENTER_KEYCODE) {
       action();
     }
-  }
+  };
 
   var getRandomNumber = function (min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -93,5 +93,5 @@
     getRandomArrayElement: getRandomArrayElement,
     getMaxElement: getMaxElement,
     getDraggableElement: getDraggableElement
-  }
+  };
 })();
