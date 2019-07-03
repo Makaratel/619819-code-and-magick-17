@@ -29,5 +29,5 @@
 
   window.render = {
     renderWizards: renderWizards
-  }
+  };
 })();

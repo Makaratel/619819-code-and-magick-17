@@ -39,5 +39,5 @@
 
   window.similar = {
     updateWizards: updateWizards
-  }
+  };
 })();
