@@ -13,7 +13,6 @@
   var fireballInput = fireball.querySelector('input');
   var coatColor;
   var eyesColor;
-  var lastTimeout;
   var wizards = [];
 
   var successHandler = function (data) {
@@ -38,13 +37,9 @@
         eyesColor = newColor;
       }
 
-      if (lastTimeout) {
-        clearTimeout(lastTimeout);
-      }
-
-      lastTimeout = setTimeout(function () {
+      window.similar.debounce(function() {
         window.similar.updateWizards(wizards, coatColor, eyesColor);
-      }, 300);
+      });
     });
   };
 

@@ -1,6 +1,10 @@
 'use strict';
 
 (function () {
+  var DEBOUNCE_INTERVAL = 300;
+
+  var lastTimeout;
+
   var getRank = function (wizard, coatColor, eyesColor) {
     var rank = 0;
 
@@ -37,7 +41,16 @@
     }));
   };
 
+  var debounce = function (cb) {
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    }
+
+    lastTimeout = window.setTimeout(cb, DEBOUNCE_INTERVAL);
+  }
+
   window.similar = {
-    updateWizards: updateWizards
+    updateWizards: updateWizards,
+    debounce: debounce
   };
 })();
