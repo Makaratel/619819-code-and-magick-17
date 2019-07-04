@@ -47,7 +47,7 @@
     }
 
     lastTimeout = window.setTimeout(cb, DEBOUNCE_INTERVAL);
-  }
+  };
 
   window.similar = {
     updateWizards: updateWizards,

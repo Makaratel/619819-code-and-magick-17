@@ -37,7 +37,7 @@
         eyesColor = newColor;
       }
 
-      window.similar.debounce(function() {
+      window.similar.debounce(function () {
         window.similar.updateWizards(wizards, coatColor, eyesColor);
       });
     });
