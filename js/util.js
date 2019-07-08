@@ -95,7 +95,7 @@
       var onComplete = function () {
         timeout = null;
         if (!immediate) {
-          func.apply(this, args);
+          func.apply(func, args);
         }
       };
 
@@ -103,7 +103,7 @@
       clearTimeout(timeout);
       timeout = setTimeout(onComplete, DEBOUNCE_INTERVAL);
       if (callNow) {
-        func.apply(this, args);
+        func.apply(func, args);
       }
     };
   };
