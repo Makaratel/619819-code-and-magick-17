@@ -86,16 +86,16 @@
     });
   };
 
-  var debounce = function(func, DEBOUNCE_INTERVAL, immediate) {
+  var debounce = function (func, DEBOUNCE_INTERVAL, immediate) {
     var timeout;
 
-    return function() {
-      var context = this, args = arguments;
+    return function (args) {
+      args = arguments;
 
-      var onComplete = function() {
+      var onComplete = function () {
         timeout = null;
         if (!immediate) {
-          func.apply(context, args);
+          func.apply(this, args);
         }
       };
 
@@ -103,7 +103,7 @@
       clearTimeout(timeout);
       timeout = setTimeout(onComplete, DEBOUNCE_INTERVAL);
       if (callNow) {
-        func.apply(context, args);
+        func.apply(this, args);
       }
     };
   };
