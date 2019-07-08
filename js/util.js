@@ -103,7 +103,8 @@
       clearTimeout(timeout);
       timeout = setTimeout(onComplete, DEBOUNCE_INTERVAL);
       if (callNow) {
-        func.apply(func, args);}
+        func.apply(func, args);
+      }
     };
   };
 
