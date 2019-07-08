@@ -1,10 +1,6 @@
 'use strict';
 
 (function () {
-  var DEBOUNCE_INTERVAL = 300;
-
-  var lastTimeout;
-
   var getRank = function (wizard, coatColor, eyesColor) {
     var rank = 0;
 
@@ -29,28 +25,18 @@
     }
   };
 
-  var updateWizards = function (wizards, coatColor, eyesColor) {
+  var updateWizards = window.util.debounce(function (wizards, coatColor, eyesColor) {
     window.render.renderWizards(wizards.slice().sort(function (left, right) {
       var rankDifference = getRank(right, coatColor, eyesColor) - getRank(left, coatColor, eyesColor);
 
       if (rankDifference === 0) {
         rankDifference = nameComparator(left.name, right.name);
       }
-
       return rankDifference;
     }));
-  };
-
-  var debounce = function (cb) {
-    if (lastTimeout) {
-      window.clearTimeout(lastTimeout);
-    }
-
-    lastTimeout = window.setTimeout(cb, DEBOUNCE_INTERVAL);
-  };
+  }, 300);
 
   window.similar = {
     updateWizards: updateWizards,
-    debounce: debounce
   };
 })();

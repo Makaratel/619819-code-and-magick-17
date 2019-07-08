@@ -86,12 +86,35 @@
     });
   };
 
+  var debounce = function(func, DEBOUNCE_INTERVAL, immediate) {
+    var timeout;
+
+    return function() {
+      var context = this, args = arguments;
+
+      var onComplete = function() {
+        timeout = null;
+        if (!immediate) {
+          func.apply(context, args);
+        }
+      };
+
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(onComplete, DEBOUNCE_INTERVAL);
+      if (callNow) {
+        func.apply(context, args);
+      }
+    };
+  };
+
   window.util = {
     isEscEvent: isEscEvent,
     isEnterEvent: isEnterEvent,
     getRandomNumber: getRandomNumber,
     getRandomArrayElement: getRandomArrayElement,
     getMaxElement: getMaxElement,
-    getDraggableElement: getDraggableElement
+    getDraggableElement: getDraggableElement,
+    debounce: debounce
   };
 })();
